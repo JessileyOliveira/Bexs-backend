@@ -2,7 +2,7 @@
   "name": "bexs-backend",
   "version": "1.0.0",
   "description": "Backend desafio bexs",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "jest",
     "dev": "nodemon src/server.js",
