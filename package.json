@@ -1,0 +1,38 @@
+{
+  "name": "bexs-backend",
+  "version": "1.0.0",
+  "description": "Backend desafio bexs",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JessileyOliveira/Bexs-backend.git"
+  },
+  "author": "Jessiley Oliveira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JessileyOliveira/Bexs-backend/issues"
+  },
+  "homepage": "https://github.com/JessileyOliveira/Bexs-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.22.0",
+    "pg": "^8.0.3",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.7"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "faker": "^4.1.0",
+    "jest": "^25.5.2",
+    "nodemon": "^2.0.3",
+    "sequelize-cli": "^5.5.1",
+    "supertest": "^4.0.2"
+  }
+}
