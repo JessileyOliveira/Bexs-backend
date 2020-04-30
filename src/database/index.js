@@ -1,8 +1,11 @@
 const Sequelize = require('sequelize');
 
+const Question = require('../app/models/Question');
+const Answer = require('../app/models/Answer');
+const Log = require('../app/models/Log');
 const databaseConfig = require('../config/database');
 
-const models = [];
+const models = [Question, Answer, Log];
 
 class Database {
   constructor() {
