@@ -2,7 +2,7 @@ const faker = require('faker');
 
 function generateFakeQuestion() {
   return {
-    name: faker.name.findName(),
+    user: faker.name.findName(),
     text: `${faker.lorem.text(25)}?`,
   };
 }

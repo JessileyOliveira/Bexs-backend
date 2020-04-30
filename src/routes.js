@@ -2,8 +2,8 @@ const { Router } = require('express');
 
 const routes = new Router();
 
-routes.get(`/`, async (req, res) => {
-  res.send('Hello Bexs');
-});
+const QuestionController = require('./app/controllers/QuestionController');
+
+routes.post('/questions', QuestionController.store);
 
 module.exports = routes;
