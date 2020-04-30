@@ -7,7 +7,7 @@ services:
     container_name: postgres-bexs
     restart: always
     environment:
-      - POSTGRES_DB=favoriteproducts
+      - POSTGRES_DB=bexs
       - POSTGRES_PASSWORD=docker
     ports:
       - 5432:5432
