@@ -21,6 +21,8 @@ class QuestionController {
       data: questions,
     };
 
+    createLog('', 'Get Questions', 'Success', JSON.stringify(content));
+
     return res.status(200).json(content);
   }
 
@@ -48,6 +50,12 @@ class QuestionController {
         .status(400)
         .json({ error: true, message: 'Error registering question' });
     }
+  }
+
+  async show(req, res) {
+    const question = req.question;
+
+    return res.status(200).json(question);
   }
 }
 
