@@ -1,5 +1,7 @@
 const Question = require('../models/Question');
+const Answer = require('../models/Answer');
 const { createLog } = require('../../utils/createLog');
+const Sequelize = require('sequelize');
 
 class QuestionController {
   async index(req, res) {
@@ -9,6 +11,19 @@ class QuestionController {
       order: [['created_at', 'desc']],
       limit: perPage,
       offset: (page - 1) * perPage,
+      attributes: [
+        'id',
+        'user',
+        'text',
+        'created_at',
+        'updated_at',
+        [
+          Sequelize.literal(
+            '(SELECT COUNT(*) FROM answers WHERE answers.question_id = "Question"."id")'
+          ),
+          'answersCount',
+        ],
+      ],
     });
 
     const total = await Question.count({ col: 'id' });

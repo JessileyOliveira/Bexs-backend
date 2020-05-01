@@ -15,7 +15,7 @@ module.exports = async (req, res, next) => {
       },
     ],
   });
-  console.log(question);
+
   if (!question) {
     createLog('', 'Get Question by id', 'Error', 'Question not found!');
     return res
