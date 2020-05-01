@@ -1,5 +1,4 @@
 const Question = require('../models/Question');
-const Answer = require('../models/Answer');
 const { createLog } = require('../../utils/createLog');
 const Sequelize = require('sequelize');
 

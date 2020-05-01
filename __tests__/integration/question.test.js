@@ -5,7 +5,7 @@ const Question = require('../../src/app/models/Question');
 const Log = require('../../src/app/models/Log');
 
 describe('Question tests', () => {
-  afterEach(async () => {
+  beforeAll(async () => {
     await Question.destroy({ truncate: { cascade: true } });
     await Log.destroy({ truncate: { cascade: true } });
   });
@@ -16,7 +16,7 @@ describe('Question tests', () => {
       .send(generateFakeQuestion());
     expect(response.status).toBe(201);
   });
-  it('should return status 400 in case of error (store)', async () => {
+  it('should return status 400 in case of invalid question (store)', async () => {
     const fakeQuestion = generateFakeQuestion();
     const response = await request(app)
       .post('/questions')
