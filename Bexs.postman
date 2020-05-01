@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "e511c226-4a5f-4303-8a96-ed8038d26667",
+		"name": "Bexs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Question",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n\"user\": \"Jessiley\",    \r\n\"text\": \"Minha pergunta?\"   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/questions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"questions"
+							]
+						},
+						"description": "Cria uma nova pergunta    \r\n# \r\n**Estrutura:**   \r\n\r\n```\r\n{   \r\n\"user\": \"Jessiley\",    \r\n\"text\": \"Minha pergunta?\"   \r\n}\r\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Getall",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/questions?page=1&perPage=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"questions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número da página buscada"
+								},
+								{
+									"key": "perPage",
+									"value": "10",
+									"description": "Quantidade de itens por página"
+								}
+							]
+						},
+						"description": "Pega todas as perguntas (Paginado)      \r\n# \r\n**Query parameters:**\r\n\r\n**page**: Número da página buscada   \r\n**perPage**: Quantidade de itens por página"
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/questions/794?page=1&perPage=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"questions",
+								"794"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": " Número da página buscada de respostas"
+								},
+								{
+									"key": "perPage",
+									"value": "10",
+									"description": "Quantidade de itens por página de respostas"
+								}
+							]
+						},
+						"description": "Pega uma pergunta por id (respostas paginadas)   \r\n# \r\n**Query parameters:**\r\n\r\n**page**: Número da página buscada de respostas   \r\n**perPage**: Quantidade de itens por página de respostas"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para consumo de perguntas",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fffec722-1975-41cf-a8f7-1a0070220bdd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ae35287e-6452-4513-b934-2a79a25a4bb1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Answers",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n\"user\": \"Jessiley\",    \r\n\"text\": \"Minha pergunta?\"   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/questions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"questions"
+							]
+						},
+						"description": "Cria uma nova Resposta    \r\n# \r\n**Estrutura:**  \r\n\r\n`question_id: Id da pergunta passado como parâmetro na rota`\r\n\r\n```\r\n{   \r\n\"user\": \"Jessiley\",    \r\n\"text\": \"Minha resposta\"   \r\n}\r\n```"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para consumo de respostas",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "01046401-8666-4733-8ff7-15c335548a90",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "bd9e6c91-88f3-4511-8dda-887ea8f6b456",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "8e4098b3-4073-4260-89fd-4c0e045088ef",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b90a15df-cee5-40ba-81e5-3e83deb4ccb8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "4dade42c-bce4-484b-8574-9ddd808c652b",
+			"key": "base_url",
+			"value": "localhost:3333",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

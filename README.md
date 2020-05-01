@@ -88,6 +88,8 @@ _OBS2:. A execução dos testes efetua a limpeza das tabelas ao final dos testes
 
 ## Endpoints
 
+_OBS:. O projeto contêm os arquivos `insomnia.json` e `bens.postman`, para o uso das API's no [Insomnia](https://insomnia.rest/download/) e no [Postman](https://www.postman.com/downloads/) respectivamente._
+
 ### Perguntas
 
 #### `GET`: `/questions?page=<NUMERO_DA_PAGINA>&perPage=<QUANTIDADE_POR_PAGINA>`
