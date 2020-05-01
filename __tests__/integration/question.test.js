@@ -5,7 +5,7 @@ const Question = require('../../src/app/models/Question');
 const Log = require('../../src/app/models/Log');
 
 describe('Question tests', () => {
-  beforeAll(async () => {
+  afterAll(async () => {
     await Question.destroy({ truncate: { cascade: true } });
     await Log.destroy({ truncate: { cascade: true } });
   });
