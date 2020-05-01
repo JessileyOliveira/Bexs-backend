@@ -2,10 +2,12 @@ const request = require('supertest');
 const app = require('../../src/app');
 const { generateFakeQuestion } = require('../utils/faker');
 const Question = require('../../src/app/models/Question');
+const Log = require('../../src/app/models/Log');
 
 describe('Question tests', () => {
   afterEach(async () => {
     await Question.destroy({ truncate: { cascade: true } });
+    await Log.destroy({ truncate: { cascade: true } });
   });
 
   it('should add a new question and return status 201 (store)', async () => {
@@ -52,5 +54,23 @@ describe('Question tests', () => {
     const response = await request(app).get(`/questions?perPage=5`).send();
     expect(response.status).toBe(200);
     expect(parseInt(response.body.perPage)).toBe(5);
+  });
+
+  it('should return a question (show)', async () => {
+    const fakeQuestion = generateFakeQuestion();
+    const question = await Question.create(fakeQuestion);
+    const response = await request(app).get(`/questions/${question.id}`).send();
+    expect(response.body).toHaveProperty('id');
+    expect(response.body).toHaveProperty('answers');
+  });
+  it('should return status 404 when question not Exists (show)', async () => {
+    const fakeQuestion = generateFakeQuestion();
+    const question = await Question.create(fakeQuestion);
+
+    await question.destroy();
+    const response = await request(app).get(`/questions/${question.id}`).send();
+    expect(response.status).toBe(404);
+    expect(response.body).toHaveProperty('message');
+    expect(response.body.message).toBe('Question not found!');
   });
 });

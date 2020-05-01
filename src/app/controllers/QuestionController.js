@@ -55,6 +55,8 @@ class QuestionController {
   async show(req, res) {
     const question = req.question;
 
+    createLog('', 'Get Question by id', 'Success', JSON.stringify(question));
+
     return res.status(200).json(question);
   }
 }
