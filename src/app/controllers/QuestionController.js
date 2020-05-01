@@ -2,6 +2,28 @@ const Question = require('../models/Question');
 const { createLog } = require('../../utils/createLog');
 
 class QuestionController {
+  async index(req, res) {
+    const { page = 1, perPage = 10 } = req.query;
+
+    const questions = await Question.findAll({
+      order: [['created_at', 'desc']],
+      limit: perPage,
+      offset: (page - 1) * perPage,
+    });
+
+    const total = await Question.count({ col: 'id' });
+
+    const content = {
+      total,
+      perPage: parseInt(perPage),
+      lastPage: Math.ceil(total / perPage),
+      page: parseInt(page),
+      data: questions,
+    };
+
+    return res.status(200).json(content);
+  }
+
   async store(req, res) {
     const data = req.body;
 
@@ -17,7 +39,7 @@ class QuestionController {
       return res.status(201).json(question);
     } catch (e) {
       createLog(
-        data.user,
+        data.user || '',
         'Create Question',
         'Error',
         JSON.stringify(e.message)
