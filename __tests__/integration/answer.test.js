@@ -2,11 +2,10 @@ const request = require('supertest');
 const app = require('../../src/app');
 const { generateFakeQuestion, generateFakeAnswer } = require('../utils/faker');
 const Question = require('../../src/app/models/Question');
-const Answer = require('../../src/app/models/Answer');
 const Log = require('../../src/app/models/Log');
 
 describe('Answers tests', () => {
-  afterEach(async () => {
+  beforeAll(async () => {
     await Question.destroy({ truncate: { cascade: true } });
     await Log.destroy({ truncate: { cascade: true } });
   });

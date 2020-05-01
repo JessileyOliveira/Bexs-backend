@@ -4,6 +4,7 @@
   "description": "Backend desafio bexs",
   "main": "src/server.js",
   "scripts": {
+    "pretest": "sequelize db:migrate",
     "test": "jest",
     "dev": "nodemon src/server.js",
     "start": "node src/server.js"
